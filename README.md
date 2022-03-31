@@ -1,2 +1,2 @@
-# PRO3601-2022
+# TrainingPRO3601
 Repositorio da turma de PRO3601-2022
