@@ -1,5 +1,4 @@
 ﻿EXPORT File_crime_raw := MODULE
-
 	EXPORT Layout:=	RECORD
     STRING ID;
     STRING Case_Number;
@@ -25,5 +24,6 @@
     STRING Location;
 		END;
 		EXPORT File:=DATASET('~chicago::hmw::crimes_-_2001_to_present.csv',Layout,CSV(heading(1)));
+		// EXPORT File:=DATASET('~chicago::hmw::crimes_-_2001_to_present.csv',Layout,CSV);
 		// EXPORT File:=DATASET('~chicago::hmw::crimes_-_2001_to_present.csv',Layout,CSV);
 END;
