@@ -7,7 +7,7 @@
     STRING4 iucr;
     STRING33 primary_type;
     STRING60 description;
-    STRING53 location_description;
+    STRING53  location_description;
     STRING5 arrest;
     STRING5 domestic;
     STRING4 beat;
