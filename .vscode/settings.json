@@ -1,4 +1,4 @@
 {
-    "ecl.launchConfiguration": "OracleVM",
+    "ecl.launchConfiguration": "playground",
     "ecl.targetCluster": {}
 }
