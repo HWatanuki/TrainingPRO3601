@@ -23,5 +23,5 @@
     REAL8 longitude;
     STRING29 location;
   END;
-  EXPORT File:=DATASET('~chicago::intro::vrs::crimes_-_2001_to_present_opt.csv',Layout,CSV(heading(1)));
+  EXPORT File:=DATASET('~chicago::intro::vrs::crimes_-_2001_to_present_optimized.csv',Layout,CSV(heading(1)));
 END;
