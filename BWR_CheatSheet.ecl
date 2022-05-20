@@ -24,11 +24,12 @@ OUTPUT(mydef);
                // {'Bruno','Camargo','',22,-100,500.00},
 							 // {'Elaine','Silva','F',19,-50,750.60},
 							 // {'Julia','Caetano','F',45,500,5000},
+							 // {'Odair','Ferreira','M',66,350,6000},
 							 // {'Orlando','Silva','U',67,300,4000}],rec);
 // OUTPUT(ds);
 
 // *****
-// Filtragem de datasets
+// Filtragem e tabulaçao de datasets
 // recset := ds(Age<65);
 // recset; //Equivale a: OUTPUT(recset);
 
@@ -43,6 +44,17 @@ OUTPUT(mydef);
 // recset := ds(Gender IN SetGender);
 // recset;						// definição do tipo "recordset"
 // COUNT(recset);    //Equivale a: OUTPUT(COUNT(recset));
+
+// rec2 := RECORD
+  // ds.Gender;
+	// cnt := COUNT(GROUP);
+// END;
+
+// crosstab := TABLE(ds,rec2,Gender);
+// crosstab;
+
+// avg := AVE(crosstab,cnt);
+// avg;
 
 // *****
 // Transformacoes basicas em ECL
