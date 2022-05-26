@@ -1,31 +1,31 @@
 ﻿// *****
 // Elementos constituintes basicos da ECL
 // Uma definicao
-Mydef := 'Olá mundo';  // definicao do tipo "value"
+// Mydef := 'Olá mundo';  // definicao do tipo "value"
 
 // Uma acao
-OUTPUT('Olá mundo');
-OUTPUT(mydef);
+// OUTPUT('Olá mundo');
+// OUTPUT(mydef);
 
 // *****
 // Estruturas de dados basicas em ECL
 // Estrutura RECORD
-// rec := RECORD
-  // STRING10  Firstname;
-	// STRING    Lastname;
-	// STRING1   Gender;
-	// UNSIGNED1 Age;
-	// INTEGER   Balance;
-	// DECIMAL7_2 Income;
-// END;
+rec := RECORD
+  STRING10  Firstname;
+	STRING    Lastname;
+	STRING1   Gender;
+	UNSIGNED1 Age;
+	INTEGER   Balance;
+	DECIMAL7_2 Income;
+END;
 
 // Declaracao DATASET
-// ds := DATASET([{'Alysson','Oliveira','M',26,100,1000.50},
-               // {'Bruno','Camargo','',22,-100,500.00},
-							 // {'Elaine','Silva','F',19,-50,750.60},
-							 // {'Julia','Caetano','F',45,500,5000},
-							 // {'Odair','Ferreira','M',66,350,6000},
-							 // {'Orlando','Silva','U',67,300,4000}],rec);
+ds := DATASET([{'Alysson','Oliveira','M',26,100,1000.50},
+               {'Bruno','Camargo','',22,-100,500.00},
+							 {'Elaine','Silva','F',19,-50,750.60},
+							 {'Julia','Caetano','F',45,500,5000},
+							 {'Odair','Ferreira','M',66,350,6000},
+							 {'Orlando','Silva','U',67,300,4000}],rec);
 // OUTPUT(ds);
 
 // *****
@@ -36,7 +36,7 @@ OUTPUT(mydef);
 // recset := ds(Age<65,Gender='M');
 // recset;
 
-// IsSeniorMale := ds.Age>65 AND ds.Gender='M'; //definição do tipo "boolean"
+// IsSeniorMale := ds.Age<65 AND ds.Gender='M'; //definição do tipo "boolean"
 // recset := ds(IsSeniorMale);
 // recset;
 
@@ -45,16 +45,16 @@ OUTPUT(mydef);
 // recset;						// definição do tipo "recordset"
 // COUNT(recset);    //Equivale a: OUTPUT(COUNT(recset));
 
-// rec2 := RECORD
-  // ds.Gender;
-	// cnt := COUNT(GROUP);
-// END;
+rec2 := RECORD
+  ds.Gender;
+	cnt := COUNT(GROUP);
+END;
 
-// crosstab := TABLE(ds,rec2,Gender);
-// crosstab;
+crosstab := TABLE(ds,rec2,Gender);
+crosstab;
 
-// avg := AVE(crosstab,cnt);
-// avg;
+avg := AVE(crosstab,cnt);
+avg;
 
 // *****
 // Transformacoes basicas em ECL
