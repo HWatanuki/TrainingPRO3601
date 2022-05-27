@@ -10,5 +10,4 @@ Layout_Crimes_RecID IDRecs($.chicago_crimes.Layout L,INTEGER C) := TRANSFORM
 	SELF := L;
 END;
 
-EXPORT UID_Crimes := PROJECT($.chicago_crimes.File,IDRecs(LEFT,COUNTER))
-															:PERSIST('~CLASS::VRS::PERSIST::UID_Crimes');
+EXPORT UID_Crimes := PROJECT($.chicago_crimes.File,IDRecs(LEFT,COUNTER)):PERSIST('~CLASS::VRS::PERSIST::UID_Crimes');
