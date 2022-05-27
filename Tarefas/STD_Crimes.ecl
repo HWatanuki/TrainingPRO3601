@@ -6,7 +6,7 @@ EXPORT STD_Crimes := MODULE
     $.UID_Crimes.RecID;
     $.UID_Crimes.id;
     $.UID_Crimes.case_number;
-    STRING date := STD.Date.FromStringToDate($.UID_Crimes.date);
+    UNSIGNED8 date := STD.Date.FromStringToDate($.UID_Crimes.date);
     $.UID_Crimes.block;
     $.UID_Crimes.iucr;
     $.UID_Crimes.primary_tipe;
