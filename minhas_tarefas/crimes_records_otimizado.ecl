@@ -1,5 +1,5 @@
-﻿EXPORT File_crime_optimized := MODULE
-  EXPORT Layout := RECORD
+﻿EXPORT crimes_records_otimizado := MODULE
+EXPORT Layout := RECORD
     UNSIGNED4 id;
     STRING9 case_number;
     STRING22 date;
@@ -23,5 +23,5 @@
     REAL8 longitude;
     STRING29 location;
   END;
-  EXPORT File:= DATASET('~chicago::hmw::crimes_-_2001_to_present.csv',Layout,CSV(heading(1)));
+  EXPORT File:= DATASET('~class::teste::pfbo::crimes.csv',Layout,CSV(heading(1)));
 END;
