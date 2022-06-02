@@ -7,7 +7,8 @@ OutRec := RECORD
  TotalPerYear := COUNT(GROUP);
 END;
 
-MyTable := SORT(TABLE(Crimes(year BETWEEN 2010 AND 2020),OutRec,Year),year);
+// MyTable := SORT(TABLE(Crimes(year BETWEEN 2010 AND 2020),OutRec,Year),year);
+MyTable := TABLE(Crimes(year BETWEEN 2010 AND 2020),OutRec,Year);
 
 OUTPUT(MyTAble);
 
