@@ -1,11 +1,11 @@
 ﻿// *****
 // Elementos constituintes basicos da ECL
 // Uma definicao
-// Mydef := 'Olá mundo';  // definicao do tipo "value"
+Mydef := 'Olá mundo';  // definicao do tipo "value"
 
 // Uma acao
-// OUTPUT('Olá mundo');
-// OUTPUT(mydef);
+OUTPUT('Olá mundo');
+OUTPUT(mydef);
 
 // *****
 // Estruturas de dados basicas em ECL
@@ -26,7 +26,10 @@ ds := DATASET([{'Alysson','Oliveira','M',26,100,1000.50},
 							 {'Julia','Caetano','F',45,500,5000},
 							 {'Odair','Ferreira','M',66,350,6000},
 							 {'Orlando','Silva','U',67,300,4000}],rec);
-OUTPUT(ds);
+// OUTPUT(ds);
+
+// myfilterdata := ds(gender<>'');
+// myfilterdata;
 
 // *****
 // Filtragem e tabulaçao de datasets
@@ -59,70 +62,61 @@ OUTPUT(ds);
 // *****
 // Transformacoes basicas em ECL
 // Eliminacao de campos desnecessarios
-tbl := TABLE(ds,{Firstname,LastName,Income});
-tbl;
+// tbl := TABLE(ds,{Firstname,LastName,Income});
+// tbl;
 
 // Ordenacao de valores
-sortbl := SORT(tbl,LastName);
-sortbl;
+// sortbl := SORT(tbl,LastName);
+// sortbl;
 
 // Remocao de duplicidades
-dedptbl := DEDUP(sortbl,LastName);
-dedptbl;
+// dedptbl := DEDUP(sortbl,LastName);
+// dedptbl;
 
 // Adicao de campo no dataset
-rec2 := RECORD
-  UNSIGNED   recid;  
-	STRING10   Firstname;
-	STRING     Lastname;
-	STRING1    Gender;
-	UNSIGNED1  Age;
-	INTEGER    Balance;
-	DECIMAL7_2 Income;
-END;
+// rec2 := RECORD
+  // UNSIGNED   recid;  
+	// STRING10   Firstname;
+	// STRING     Lastname;
+	// STRING1    Gender;
+	// UNSIGNED1  Age;
+	// INTEGER    Balance;
+	// DECIMAL7_2 Income;
+// END;
 
-IMPORT STD;
-rec2 MyTransf(rec Le, UNSIGNED cnt) := TRANSFORM
-  SELF.recid:=cnt;
-	SELF.Firstname := STD.Str.ToUpperCase(Le.Firstname);
-	SELF.Lastname := STD.Str.ToUpperCase(Le.LastName);
-  SELF := Le;
-END;
+// rec2 MyTransf(rec Le, UNSIGNED cnt) := TRANSFORM
+  // SELF.recid:=cnt;
+  // SELF := Le;
+// END;
 
-newds := PROJECT(ds,MyTransf(LEFT,COUNTER));
+// newds := PROJECT(ds,MyTransf(LEFT,COUNTER));
 
-newds;
+// newds;
 
 
-rec3 := RECORD
-  STRING10  Firstname;
-	STRING    Lastname;
-	STRING    Email;
-END;
+// Conversão de campo no dataset
+// IMPORT STD;
 
-// Declaracao DATASET
-ds2 := DATASET([{'ALYSSON','OLIVEIRA','alysson.oliveira@gmail.com'},
-               {'BRUNO','CAMARGO','bruno.camargo@gmail.com'},
-							 {'ELAINE','SILVA','elaine.silva@gmail.com'},
-							 {'JULIA','CAETANO','julia.caetano@gmail.com'},
-							 {'ODAIR','FERREIRA','odair.ferreira@gmail.com'},
-							 {'ORLANDO','SILVA','orlando.silva@gmail.com'}],rec3);
-OUTPUT(ds2);
+// rec3 := RECORD
+  // UNSIGNED   recid;  
+	// STRING10   Firstname;
+	// STRING     Lastname;
+	// STRING1    Gender;
+	// UNSIGNED1  Age;
+	// INTEGER    Balance;
+	// DECIMAL7_2 Income;
+// END;
 
-// Fazendo JOIN de datasets
-rec4 := RECORD
-  rec2;
-	rec3.Email;
-END;
+// rec3 MyTransf2(rec2 Le) := TRANSFORM
+  // SELF.FirstName := STD.Str.ToUpperCase(Le.Firstname);
+  // SELF.LastName := STD.Str.ToUpperCase(Le.Lastname);
+  // SELF := Le;
+// END;
 
-rec4 MyTransf2(rec2 Le, rec3 Ri) := TRANSFORM
-  SELF := Le;
-	SELF := Ri;
-END;
+// newds2 := PROJECT(newds,MyTransf2(LEFT));
 
-joineds := JOIN(newds,ds2,LEFT.Firstname=RIGHT.Firstname AND LEFT.Lastname=RIGHT.Lastname,MyTransf2(LEFT,RIGHT));
+// newds2;
 
-joineds;
 
 
 

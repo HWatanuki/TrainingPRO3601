@@ -1,7 +1,6 @@
 ﻿IMPORT $;
 
-// OUTPUT($.File_crime_raw.File,NAMED('Raw_data'));
+OUTPUT($.File_crime_raw.File,NAMED('Raw_data'));
 // COUNT($.File_crime_raw.File);
-// OUTPUT($.File_crime_optimized.File,NAMED('Optimized_data'));
+OUTPUT($.File_crime_optimized.File,NAMED('Optimized_data'));
 // COUNT($.File_crime_optimized.File);
-OUTPUT($.Formatted_File,NAMED('Formatted_File'));

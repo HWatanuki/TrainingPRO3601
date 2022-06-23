@@ -10,6 +10,7 @@ END;
 T_recs := TABLE($.STD_Persons.File,Layout_T_recs);
 T_recs;
 S_recs := SORT(T_recs,ZipCode,State,City);
+s_RECS;
 
 Layout_T_recs RollCSV(Layout_T_recs L, Layout_T_recs R) := TRANSFORM
 	SELF.CSZ_ID := IF(L.CSZ_ID < R.CSZ_ID,L.CSZ_ID,R.CSZ_ID);
