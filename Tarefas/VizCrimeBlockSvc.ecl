@@ -1,6 +1,6 @@
-﻿IMPORT $,STD;
+﻿IMPORT $,STD,Visualizer;
 
-EXPORT CrimeBlockSvc (STRING Block_info):= FUNCTION
+EXPORT VizCrimeBlockSvc (STRING Block_info):= FUNCTION
 
 	basekey1 := $.NormCrimeRecs.IDX_Crimes;
 	basekey2 := $.NormAddrRecs.IDX_addr;
@@ -32,6 +32,14 @@ END;
 	END;
 
   mytable := CHOOSEN(SORT(TABLE(joinrecs,outrec,block,primary_type,description),-cnt),10);	
+ 
+  op := OUTPUT(mytable,, NAMED('crimes'));
+ 
+  mappings :=  DATASET([ {'Crime', 'primary_type'},
+												{'Quantity', 'cnt'} 
+                       ], Visualizer.KeyValueDef);
+	
+  // RETURN SEQUENTIAL(op, Visualizer.TwoD.Pie('pie',,'crimes',mappings));
+  RETURN SEQUENTIAL(op, Visualizer.MultiD.column('column',,'crimes',mappings));
 
-	RETURN OUTPUT(mytable);
 END;

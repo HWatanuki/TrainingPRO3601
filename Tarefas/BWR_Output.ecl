@@ -13,6 +13,11 @@
 // OUTPUT($.NormCrimeRecs.File,NAMED('Crime_data'));
 // COUNT($.NormCrimeRecs);
 
-$.CrimeBlockSvc('E 100 PL'); //residential area
-$.CrimeBlockSvc('N STATE ST'); //commercial area with retail theft
-$.CrimeBlockSvc('E Jackson BLVD'); //residential area with building theft
+// $.CrimeBlockSvc('E 100 PL'); //residential area
+// $.CrimeBlockSvc('N STATE ST'); //commercial area with retail theft
+// $.CrimeBlockSvc('E Jackson BLVD'); //residential area with building theft
+
+$.VizCrimeBlockSvc('E 100 PL');
+
+
+
