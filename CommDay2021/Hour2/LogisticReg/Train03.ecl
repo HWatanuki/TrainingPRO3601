@@ -21,11 +21,9 @@ OUTPUT(MyConfAccy, NAMED('ConfusionAccuracy'));
 	 
 //Utilize AIC (Akaike Information Criterion) for model optimization
 MyBeta := LR.ExtractBeta(myModel);
-OUTPUT(MyBeta, NAMED('BetaValues'));
 MyScores := LR.LogitScore(MyBeta,Xtest);
 OUTPUT(MyScores , NAMED('ScoreValues'));
 MyDeviance := LR.Deviance_Detail(YTest,MyScores);
-OUTPUT(MyDeviance, NAMED('DevianceValues'));
 MyAIC := LR.Model_Deviance(MyDeviance,MyBeta);
 OUTPUT(MyAIC, NAMED('AIC'));
    

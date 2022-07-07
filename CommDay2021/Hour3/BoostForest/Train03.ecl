@@ -20,3 +20,6 @@ OUTPUT(MyPredict, NAMED('PredictedValues'));//workitem,uniqueid,field number, de
 assessmentR2   := ML_Core.Analysis.Regression.Accuracy(MyPredict,YTest);
 OUTPUT(assessmentR2, NAMED('Accuracy'));
 
+//Assess Feature Importance
+featImportance   := myLearner.FeatureImportance(MyModel);
+OUTPUT(featImportance, NAMED('FeatureImportance'));

@@ -1,16 +1,16 @@
 ﻿IMPORT $;
 
 //Browse raw input data
-OUTPUT($.File_Property.File,NAMED('Property'));
-COUNT($.File_Property.File);
+// OUTPUT($.File_Property.File,NAMED('Property'));
+// COUNT($.File_Property.File);
 
 //Browse clean input data - notice the amount of data that had quality issues
 // OUTPUT($.Prep01.myDataE,NAMED('CleanProperty'));
 // COUNT($.Prep01.myDataE);
 
 // Browse clean train data and test data
-// OUTPUT($.Prep01.myTrainData,NAMED('TrainData'));
-// COUNT($.Prep01.myTrainData);
+OUTPUT($.Prep01.myTrainData,NAMED('TrainData'));
+COUNT($.Prep01.myTrainData);
 // OUTPUT($.Prep01.myTestData,NAMED('TestData'));
 // COUNT($.Prep01.myTestData);
 
